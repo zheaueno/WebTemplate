@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="64" height="64" shape-rendering="crispEdges">
+  <rect width="16" height="16" fill="#080B1A"/>
+  <!-- Outer decorative corner stars -->
+  <rect x="2" y="2" width="1" height="1" fill="#FFE59A"/>
+  <rect x="13" y="3" width="1" height="1" fill="#64E9FF"/>
+  <rect x="2" y="13" width="1" height="1" fill="#FF77C8"/>
+  <!-- Pixel Rocket Ship -->
+  <rect x="7" y="2" width="2" height="1" fill="#64E9FF"/>
+  <rect x="6" y="3" width="4" height="1" fill="#F4F6FF"/>
+  <rect x="6" y="4" width="4" height="2" fill="#F4F6FF"/>
+  <rect x="7" y="4" width="2" height="2" fill="#9775FA"/>
+  <rect x="5" y="6" width="6" height="3" fill="#F4F6FF"/>
+  <rect x="7" y="6" width="2" height="2" fill="#64E9FF"/>
+  <!-- Wings -->
+  <rect x="3" y="8" width="2" height="3" fill="#FF77C8"/>
+  <rect x="11" y="8" width="2" height="3" fill="#FF77C8"/>
+  <rect x="4" y="7" width="1" height="1" fill="#FF77C8"/>
+  <rect x="11" y="7" width="1" height="1" fill="#FF77C8"/>
+  <!-- Hull bottom -->
+  <rect x="6" y="9" width="4" height="2" fill="#99A6CC"/>
+  <!-- Thruster flame -->
+  <rect x="6" y="11" width="4" height="1" fill="#FF77C8"/>
+  <rect x="7" y="12" width="2" height="2" fill="#FFE59A"/>
+  <rect x="7" y="14" width="2" height="1" fill="#64E9FF"/>
+</svg>

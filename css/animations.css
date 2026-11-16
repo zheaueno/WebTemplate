@@ -1,0 +1,123 @@
+/* ==========================================================================
+   PIXELVERSE — Microinteractions & Pixel Keyframe Animations
+   Respects prefers-reduced-motion and .motion-disabled state
+   ========================================================================== */
+
+@keyframes pixelFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes shipHover {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes shipWarpShake {
+  0%, 100% {
+    transform: translate(0, 0) scale(1.06);
+  }
+  25% {
+    transform: translate(-1px, -2px) scale(1.08);
+  }
+  75% {
+    transform: translate(1px, -1px) scale(1.08);
+  }
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animations only when motion is enabled */
+body:not(.motion-disabled) .avatar-frame {
+  animation: pixelFloat 4s steps(4, end) infinite;
+}
+
+body:not(.motion-disabled) .avatar-star--tl {
+  animation: starTwinkle 2.4s steps(2, end) infinite;
+}
+
+body:not(.motion-disabled) .avatar-star--br {
+  animation: starTwinkle 2.4s steps(2, end) 1.2s infinite;
+}
+
+body:not(.motion-disabled) .status-badge__led {
+  animation: statusPulse 2s steps(2, end) infinite;
+}
+
+body:not(.motion-disabled) .spaceship-btn:not(.is-warping) .spaceship-btn__sprite {
+  animation: shipHover 2.2s steps(4, end) infinite;
+}
+
+body:not(.motion-disabled) .spaceship-btn.is-warping .spaceship-btn__sprite {
+  animation: shipWarpShake 0.25s steps(2, end) infinite;
+}
+
+body:not(.motion-disabled) .link-card {
+  animation: cardEnter 0.35s ease-out backwards;
+}
+
+body:not(.motion-disabled) .link-card:nth-child(1) { animation-delay: 0.04s; }
+body:not(.motion-disabled) .link-card:nth-child(2) { animation-delay: 0.08s; }
+body:not(.motion-disabled) .link-card:nth-child(3) { animation-delay: 0.12s; }
+body:not(.motion-disabled) .link-card:nth-child(4) { animation-delay: 0.16s; }
+body:not(.motion-disabled) .link-card:nth-child(5) { animation-delay: 0.20s; }
+body:not(.motion-disabled) .link-card:nth-child(6) { animation-delay: 0.24s; }
+
+/* Sparkle Particle Burst Element (spawned on hover/click when particleEffects enabled) */
+.pixel-sparkle-particle {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  pointer-events: none;
+  z-index: 60;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease-out;
+}
+
+/* Reduced Motion Media Query Override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

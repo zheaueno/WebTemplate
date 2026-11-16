@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixelverse | Personal Link Hub &amp; Space Adventure</title>
+  <meta name="description" content="Personal links, projects, and adventures across the universe.">
+  <meta name="theme-color" content="#080B1A">
+
+  <!-- Canonical URL Placeholder (Synchronize with your production domain) -->
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- Open Graph Metadata (Static crawler fallback; synchronize with data/site.json on deploy) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pixelverse">
+  <meta property="og:title" content="Pixelverse | Personal Link Hub &amp; Space Adventure">
+  <meta property="og:description" content="Personal links, projects, and adventures across the universe.">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="./assets/avatar/profile.svg">
+
+  <!-- Twitter / X Card Metadata -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pixelverse | Personal Link Hub &amp; Space Adventure">
+  <meta name="twitter:description" content="Personal links, projects, and adventures across the universe.">
+  <meta name="twitter:image" content="./assets/avatar/profile.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+  <!-- Keyboard Accessibility Skip Link -->
+  <a class="skip-link" href="#main-content">SKIP TO MAIN CONTENT</a>
+
+  <!-- Decorative Procedural Pixel-Art Spaceflight Canvas (Excluded from Accessibility Tree) -->
+  <canvas id="spaceflight-canvas" aria-hidden="true"></canvas>
+  <div class="cosmic-vignette" aria-hidden="true"></div>
+
+  <!-- Application Shell (Populated 100% dynamically from data/site.json) -->
+  <div class="app-shell">
+    <header id="hud-header" class="hud-header"></header>
+
+    <main id="main-content" class="main-content" tabindex="-1">
+      <noscript>
+        <section class="pixel-panel error-console" role="alert">
+          <p class="error-console__code">SYS // JS_REQUIRED</p>
+          <h1 class="error-console__title">JAVASCRIPT REQUIRED FOR PIXELVERSE</h1>
+          <p class="error-console__msg">
+            Pixelverse loads its profile, social network links, and spaceflight environment dynamically from <code>data/site.json</code>. Please enable JavaScript to explore the universe.
+          </p>
+        </section>
+      </noscript>
+    </main>
+
+    <!-- Interactive Pixel-Art Spaceship Companion -->
+    <aside id="spaceship-dock" class="spaceship-dock" aria-label="Spacecraft controls"></aside>
+
+    <footer id="site-footer" class="site-footer"></footer>
+  </div>
+
+  <!-- Vanilla ES6 Module Entry Point -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

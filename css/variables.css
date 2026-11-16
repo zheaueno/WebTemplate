@@ -1,0 +1,59 @@
+/* ==========================================================================
+   PIXELVERSE — Design Tokens & Theme Custom Properties
+   Colors are dynamically synchronized with data/site.json at runtime.
+   ========================================================================== */
+
+:root {
+  /* Core Palette (Matches site.json defaults) */
+  --color-bg: #080B1A;
+  --color-surface: #151B35;
+  --color-surface-elevated: #1D2547;
+  --color-surface-panel: rgba(21, 27, 53, 0.92);
+  --color-primary: #9775FA;
+  --color-secondary: #64E9FF;
+  --color-accent: #FF77C8;
+  --color-yellow: #FFE59A;
+  --color-text: #F4F6FF;
+  --color-muted: #99A6CC;
+  --color-border: #2E3B6E;
+  --color-border-bright: #4D5FA3;
+
+  /* Status Colors */
+  --status-green: #4ADE80;
+  --status-yellow: #FFE59A;
+  --status-red: #FF7777;
+  --status-cyan: #64E9FF;
+
+  /* Typography */
+  --font-display: "Courier New", Consolas, "Liberation Mono", "Lucida Console", monospace;
+  --font-mono: Consolas, "SFMono-Regular", "Liberation Mono", Menlo, Courier, monospace;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Pixel Geometry & Stepped Borders */
+  --pixel-unit: 4px;
+  --border-width: 2px;
+  --shadow-step: 4px;
+  --shadow-color: #040610;
+
+  /* Layout Spacing */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+
+  /* Containers */
+  --hub-max-width: 560px;
+  --section-max-width: 880px;
+  --header-height: 64px;
+
+  /* Z-Index Layers */
+  --z-canvas: 0;
+  --z-spaceship: 5;
+  --z-content: 10;
+  --z-header: 50;
+  --z-skip-link: 100;
+}

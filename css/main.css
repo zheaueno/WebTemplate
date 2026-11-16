@@ -1,0 +1,308 @@
+/* ==========================================================================
+   PIXELVERSE — Main Layout, Typography & Retro Game Environment
+   ========================================================================== */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  position: relative;
+  selection-background-color: var(--color-primary);
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+/* Skip Link for Keyboard Accessibility */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: var(--space-md);
+  z-index: var(--z-skip-link);
+  background-color: var(--color-secondary);
+  color: var(--color-bg);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--color-text);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: var(--space-md);
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 2px;
+}
+
+/* Fullscreen Spaceflight Canvas Background */
+#spaceflight-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--z-canvas);
+  pointer-events: none;
+  display: block;
+}
+
+/* Subtle Retro Scanline Overlay (Non-intrusive, crisp) */
+.cosmic-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 30%, transparent 55%, rgba(8, 11, 26, 0.65) 100%);
+}
+
+/* App Shell */
+.app-shell {
+  position: relative;
+  z-index: var(--z-content);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top HUD Header & Navigation Bar */
+.hud-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background-color: rgba(8, 11, 26, 0.92);
+  border-bottom: 2px solid var(--color-border);
+  box-shadow: 0 4px 0 var(--shadow-color);
+}
+
+.hud-header__inner {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* HUD Brand / Telemetry Badge */
+.hud-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  min-height: 44px;
+  padding: 0 var(--space-xs);
+}
+
+.hud-brand:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.hud-brand__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.hud-brand__tag {
+  font-size: 0.7rem;
+  color: var(--color-secondary);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-bright);
+  padding: 2px 6px;
+  margin-left: 2px;
+}
+
+/* Main Navigation */
+.hud-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.hud-nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.hud-nav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0.45rem 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  box-shadow: 2px 2px 0 var(--shadow-color);
+  transition: transform 0.12s ease, border-color 0.12s ease, color 0.12s ease, background-color 0.12s ease;
+}
+
+.hud-nav__link:hover,
+.hud-nav__link:focus-visible {
+  color: var(--color-text);
+  border-color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+.hud-nav__link:focus-visible {
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 2px;
+}
+
+.hud-nav__link[aria-current="true"],
+.hud-nav__link.is-active {
+  color: var(--color-bg);
+  background-color: var(--color-secondary);
+  border-color: var(--color-text);
+  box-shadow: 2px 2px 0 var(--color-primary);
+}
+
+/* HUD Controls (Warp Speed & Motion Toggle) */
+.hud-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md) var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+}
+
+/* Section Layout Containers */
+.game-section {
+  width: 100%;
+  scroll-margin-top: calc(var(--header-height) + var(--space-lg));
+}
+
+.game-section--hub {
+  max-width: var(--hub-max-width);
+  margin: 0 auto;
+}
+
+/* Section Headers (Retro RPG / Space Console Style) */
+.section-header {
+  margin-bottom: var(--space-lg);
+  text-align: left;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.section-header__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+}
+
+.section-header__eyebrow::before {
+  content: "■";
+  color: var(--color-accent);
+  font-size: 0.65rem;
+}
+
+.section-header__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.section-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+.section-header__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+/* Focus Visible Global Standard */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 2px;
+}
+
+/* Footer */
+.site-footer {
+  position: relative;
+  z-index: var(--z-content);
+  background-color: rgba(8, 11, 26, 0.94);
+  border-top: 2px solid var(--color-border);
+  padding: var(--space-xl) var(--space-md);
+}
+
+.site-footer__inner {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.site-footer__socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.site-footer__text {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.site-footer__meta {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}

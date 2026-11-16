@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="32" height="32" shape-rendering="crispEdges">
+  <rect x="2" y="3" width="12" height="10" fill="#FF7777"/>
+  <rect x="1" y="4" width="1" height="8" fill="#FF7777"/>
+  <rect x="14" y="4" width="1" height="8" fill="#FF7777"/>
+  <rect x="2" y="3" width="12" height="1" fill="#FFE59A" opacity="0.5"/>
+  <!-- Play Triangle -->
+  <rect x="6" y="5" width="1" height="6" fill="#F4F6FF"/>
+  <rect x="7" y="6" width="2" height="4" fill="#F4F6FF"/>
+  <rect x="9" y="7" width="2" height="2" fill="#F4F6FF"/>
+</svg>

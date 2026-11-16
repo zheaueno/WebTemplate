@@ -1,0 +1,1057 @@
+/* ==========================================================================
+   PIXELVERSE — Retro Pixel-Art UI Components
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Retro Stepped Panel Box
+   -------------------------------------------------------------------------- */
+.pixel-panel {
+  background-color: var(--color-surface-panel);
+  border: 2px solid var(--color-border-bright);
+  box-shadow:
+    0 0 0 2px var(--color-bg),
+    6px 6px 0 0 var(--shadow-color);
+  padding: var(--space-lg);
+  position: relative;
+}
+
+/* Corner Pixel Studs */
+.pixel-panel::before,
+.pixel-panel::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-secondary);
+  pointer-events: none;
+}
+
+.pixel-panel::before {
+  top: 4px;
+  left: 4px;
+}
+
+.pixel-panel::after {
+  bottom: 4px;
+  right: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   2. HUD Action Buttons (Warp Speed & Motion Toggle)
+   -------------------------------------------------------------------------- */
+.pixel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background-color: var(--color-surface-elevated);
+  border: 2px solid var(--color-primary);
+  box-shadow: 3px 3px 0 var(--shadow-color);
+  transition: transform 0.12s ease, background-color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+  user-select: none;
+}
+
+.pixel-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-secondary);
+  background-color: #25305c;
+  box-shadow: 4px 5px 0 var(--shadow-color);
+}
+
+.pixel-btn:active,
+.pixel-btn.is-pressed {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--shadow-color);
+}
+
+.pixel-btn--warp {
+  border-color: var(--color-accent);
+  color: var(--color-yellow);
+}
+
+.pixel-btn--warp:hover {
+  border-color: var(--color-yellow);
+  background-color: rgba(255, 119, 200, 0.18);
+}
+
+.pixel-btn--warp[aria-pressed="true"],
+.pixel-btn--warp.is-warping {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border-color: var(--color-yellow);
+  box-shadow: 0 0 0 2px var(--color-secondary);
+}
+
+.pixel-btn--secondary {
+  border-color: var(--color-border-bright);
+  color: var(--color-muted);
+}
+
+.pixel-btn--secondary[aria-pressed="false"] {
+  border-color: var(--color-accent);
+  color: var(--color-yellow);
+}
+
+.pixel-btn__dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-secondary);
+  display: inline-block;
+}
+
+.pixel-btn--warp .pixel-btn__dot {
+  background-color: var(--color-accent);
+}
+
+.pixel-btn--warp.is-warping .pixel-btn__dot {
+  background-color: var(--color-bg);
+}
+
+/* --------------------------------------------------------------------------
+   3. Profile Header Card
+   -------------------------------------------------------------------------- */
+.profile-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.profile-card__top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px dashed var(--color-border);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+}
+
+/* Status Indicator Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border-bright);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+}
+
+.status-badge__led {
+  width: 8px;
+  height: 8px;
+  background-color: var(--status-green);
+  display: inline-block;
+}
+
+.status-badge[data-status-color="green"] .status-badge__led {
+  background-color: var(--status-green);
+}
+.status-badge[data-status-color="yellow"] .status-badge__led {
+  background-color: var(--status-yellow);
+}
+.status-badge[data-status-color="red"] .status-badge__led {
+  background-color: var(--status-red);
+}
+.status-badge[data-status-color="cyan"] .status-badge__led {
+  background-color: var(--status-cyan);
+}
+
+/* Avatar Frame with Animated Corner Stars */
+.avatar-stage {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-xs) 0;
+}
+
+.avatar-frame {
+  width: 112px;
+  height: 112px;
+  padding: 6px;
+  background-color: var(--color-bg);
+  border: 3px solid var(--color-primary);
+  box-shadow:
+    0 0 0 3px var(--color-surface),
+    0 0 0 5px var(--color-secondary),
+    6px 6px 0 5px var(--shadow-color);
+  position: relative;
+}
+
+.avatar-frame__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-star {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.avatar-star--tl {
+  top: -10px;
+  left: -14px;
+}
+
+.avatar-star--br {
+  bottom: -8px;
+  right: -14px;
+}
+
+/* Identity Text */
+.profile-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-identity__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 var(--shadow-color);
+}
+
+.profile-identity__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--color-secondary);
+}
+
+.profile-identity__location {
+  color: var(--color-yellow);
+  font-size: 0.8rem;
+  background-color: var(--color-bg);
+  padding: 1px 8px;
+  border: 1px solid var(--color-border);
+}
+
+.profile-identity__headline {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  margin-top: 4px;
+}
+
+.profile-identity__bio {
+  max-width: 44ch;
+  font-size: 0.96rem;
+  color: var(--color-muted);
+  margin-top: var(--space-xs);
+}
+
+/* Compact Featured Social Icon Row */
+.social-icon-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--space-xs);
+}
+
+.social-icon-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border-bright);
+  box-shadow: 3px 3px 0 var(--shadow-color);
+  transition: transform 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
+  position: relative;
+}
+
+.social-icon-btn:hover,
+.social-icon-btn:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--social-brand-color, var(--color-secondary));
+  background-color: var(--color-surface-elevated);
+}
+
+.social-icon-btn:active {
+  transform: translate(1px, 1px);
+}
+
+.social-icon-btn__img {
+  width: 22px;
+  height: 22px;
+}
+
+/* Primary Action CTA inside Profile */
+.profile-actions {
+  margin-top: var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.profile-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  padding: 0.55rem 1.2rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background-color: var(--color-secondary);
+  border: 2px solid var(--color-text);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transition: transform 0.12s ease, background-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.profile-cta:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-yellow);
+  box-shadow: 5px 6px 0 var(--shadow-color);
+}
+
+.profile-cta:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+/* --------------------------------------------------------------------------
+   4. Linktree Cards Hub
+   -------------------------------------------------------------------------- */
+.link-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: 68px;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-surface-panel);
+  border: 2px solid var(--color-border-bright);
+  box-shadow:
+    0 0 0 2px var(--color-bg),
+    5px 5px 0 0 var(--shadow-color);
+  transition:
+    transform 0.14s ease,
+    border-color 0.14s ease,
+    background-color 0.14s ease,
+    box-shadow 0.14s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card Variants: Primary, Accent, Default */
+.link-card--primary {
+  border-color: var(--color-primary);
+  background-color: rgba(32, 36, 78, 0.95);
+}
+
+.link-card--accent {
+  border-color: var(--color-accent);
+  background-color: rgba(42, 26, 66, 0.94);
+}
+
+.link-card:hover,
+.link-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--card-accent, var(--color-secondary));
+  background-color: var(--color-surface-elevated);
+  box-shadow:
+    0 0 0 2px var(--color-bg),
+    7px 8px 0 0 var(--shadow-color);
+}
+
+.link-card:active,
+.link-card.is-pressed {
+  transform: translate(2px, 2px);
+  box-shadow:
+    0 0 0 2px var(--color-bg),
+    2px 2px 0 0 var(--shadow-color);
+}
+
+.link-card__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 0;
+  flex: 1;
+}
+
+.link-card__icon-box {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border);
+  box-shadow: 2px 2px 0 var(--shadow-color);
+  transition: border-color 0.14s ease, transform 0.14s ease;
+}
+
+.link-card:hover .link-card__icon-box {
+  border-color: var(--card-accent, var(--color-secondary));
+  transform: scale(1.05);
+}
+
+.link-card__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.link-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  text-align: left;
+}
+
+.link-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.link-card__title {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+
+.link-card__badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-secondary);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 1px 6px;
+}
+
+.link-card__desc {
+  font-size: 0.86rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right Navigation Indicator & Sparkle */
+.link-card__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.link-card__sparkle {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--color-yellow);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+
+.link-card:hover .link-card__sparkle,
+.link-card:focus-visible .link-card__sparkle {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.link-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-secondary);
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border);
+  transition: transform 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+}
+
+.link-card:hover .link-card__arrow,
+.link-card:focus-visible .link-card__arrow {
+  transform: translateX(4px);
+  color: var(--color-yellow);
+  border-color: var(--color-yellow);
+}
+
+/* --------------------------------------------------------------------------
+   5. About Me — Character Profile Screen
+   -------------------------------------------------------------------------- */
+.character-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.character-bio-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.character-portrait-card {
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  padding: var(--space-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.character-portrait-card__label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--color-yellow);
+  background-color: var(--color-surface);
+  width: 100%;
+  padding: 4px;
+  border: 1px solid var(--color-border);
+}
+
+.character-portrait-card__img {
+  width: 120px;
+  height: 120px;
+  border: 2px solid var(--color-secondary);
+}
+
+.character-stats {
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: var(--space-xs);
+  border-top: 1px dashed var(--color-border);
+}
+
+.character-stats__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.character-stats__key {
+  color: var(--color-muted);
+}
+
+.character-stats__val {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+.character-story {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.character-story__label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.character-story__intro {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.character-story__paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  color: var(--color-muted);
+  font-size: 0.96rem;
+}
+
+/* Highlights Trio (Character Attributes) */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.highlight-card {
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border-bright);
+  padding: var(--space-md);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  transition: transform 0.14s ease, border-color 0.14s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-secondary);
+}
+
+.highlight-card__icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.highlight-card__title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-yellow);
+  text-transform: uppercase;
+}
+
+.highlight-card__desc {
+  font-size: 0.86rem;
+  color: var(--color-muted);
+}
+
+/* Sub-blocks inside About Me (Skills Inventory, Connected Socials, Featured Missions) */
+.about-subpanel {
+  background-color: rgba(8, 11, 26, 0.75);
+  border: 2px solid var(--color-border);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about-subpanel__heading {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.about-subpanel__heading::before {
+  content: "►";
+  color: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   6. Skill Inventory Badges
+   -------------------------------------------------------------------------- */
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.skill-category-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.skill-category-group__title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+}
+
+.skill-badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: var(--color-surface-elevated);
+  border: 2px solid var(--color-primary);
+  box-shadow: 3px 3px 0 var(--shadow-color);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+
+.skill-badge__pip {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   7. Projects Section (Mission Log Cards)
+   -------------------------------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.project-card {
+  background-color: var(--color-surface-panel);
+  border: 2px solid var(--color-border-bright);
+  box-shadow:
+    0 0 0 2px var(--color-bg),
+    6px 6px 0 0 var(--shadow-color);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+  transition: transform 0.14s ease, border-color 0.14s ease;
+}
+
+.project-card--featured {
+  border-color: var(--color-yellow);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-secondary);
+}
+
+.project-card__top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.project-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.project-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+
+.project-card__featured-tag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-bg);
+  background-color: var(--color-yellow);
+  padding: 2px 6px;
+}
+
+.project-card__desc {
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--space-xs);
+}
+
+.project-tag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--color-secondary);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 2px 8px;
+}
+
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  padding-top: var(--space-sm);
+  border-top: 1px dashed var(--color-border);
+}
+
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0.45rem 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  box-shadow: 3px 3px 0 var(--shadow-color);
+  transition: transform 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
+}
+
+.project-link-btn:hover,
+.project-link-btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--color-secondary);
+  background-color: var(--color-surface-elevated);
+}
+
+.project-link-btn__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   8. Contact & Social Channel Chips
+   -------------------------------------------------------------------------- */
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+.channel-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-height: 60px;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border-bright);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transition: transform 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
+}
+
+.channel-card:hover,
+.channel-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--channel-color, var(--color-secondary));
+  background-color: var(--color-surface-elevated);
+}
+
+.channel-card__icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.channel-card__info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.channel-card__name {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+
+.channel-card__handle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Section Back-to-Top / Return Button */
+.section-footer-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-md);
+}
+
+.back-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0.45rem 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-secondary);
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border-bright);
+  box-shadow: 3px 3px 0 var(--shadow-color);
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.back-home-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-yellow);
+  color: var(--color-yellow);
+}
+
+/* --------------------------------------------------------------------------
+   9. Interactive Pixel-Art Spaceship Companion Widget
+   -------------------------------------------------------------------------- */
+.spaceship-dock {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  z-index: var(--z-spaceship);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.spaceship-btn {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(8, 11, 26, 0.85);
+  border: 2px solid var(--color-border-bright);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  position: relative;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.spaceship-btn:hover,
+.spaceship-btn:focus-visible {
+  border-color: var(--color-secondary);
+}
+
+.spaceship-btn.is-warping {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-yellow);
+}
+
+.spaceship-btn__sprite {
+  width: 44px;
+  height: 44px;
+  transition: transform 0.15s ease;
+}
+
+.spaceship-dock__label {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-yellow);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 2px 6px;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   10. Error State Banner (Graceful JSON failure recovery)
+   -------------------------------------------------------------------------- */
+.error-console {
+  max-width: 520px;
+  margin: var(--space-3xl) auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  border-color: var(--status-red);
+}
+
+.error-console__code {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--status-red);
+  letter-spacing: 0.12em;
+}
+
+.error-console__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-text);
+}
+
+.error-console__msg {
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}

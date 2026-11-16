@@ -1,0 +1,328 @@
+{
+  "site": {
+    "name": "Pixelverse",
+    "title": "Your Name | Pixelverse",
+    "description": "Personal links, projects, and adventures across the universe.",
+    "language": "en",
+    "favicon": "./favicon.svg",
+    "theme": "cosmic-pixel"
+  },
+  "profile": {
+    "name": "YOUR_NAME",
+    "username": "@YOUR_USERNAME",
+    "headline": "Developer • Creator • Space Explorer",
+    "avatar": "./assets/avatar/profile.svg",
+    "status": {
+      "label": "ONLINE",
+      "color": "green",
+      "visible": true
+    },
+    "location": "Earth",
+    "shortBio": "Building cool things across the digital universe.",
+    "primaryAction": {
+      "label": "ABOUT ME",
+      "type": "section",
+      "sectionId": "about"
+    }
+  },
+  "about": {
+    "id": "about",
+    "enabled": true,
+    "title": "ABOUT ME",
+    "subtitle": "The person behind the pixels",
+    "intro": "Hello! I'm a developer and creative explorer.",
+    "paragraphs": [
+      "I enjoy building interactive websites, applications, and unique digital experiences.",
+      "My interests include software development, creative technology, and exploring new ideas.",
+      "I love transforming complex concepts into clean and memorable experiences."
+    ],
+    "highlights": [
+      {
+        "id": "highlight-development",
+        "icon": "code",
+        "title": "DEVELOPMENT",
+        "description": "Building websites, applications, and useful tools."
+      },
+      {
+        "id": "highlight-design",
+        "icon": "palette",
+        "title": "CREATIVE DESIGN",
+        "description": "Creating digital experiences with personality."
+      },
+      {
+        "id": "highlight-exploration",
+        "icon": "rocket",
+        "title": "EXPLORATION",
+        "description": "Always learning and exploring new technologies."
+      }
+    ],
+    "socialIds": [
+      "github",
+      "linkedin",
+      "discord"
+    ],
+    "showSkills": true,
+    "showProjects": true
+  },
+  "skills": {
+    "enabled": true,
+    "title": "MY SKILLS",
+    "items": [
+      {
+        "id": "html",
+        "name": "HTML",
+        "category": "frontend"
+      },
+      {
+        "id": "css",
+        "name": "CSS",
+        "category": "frontend"
+      },
+      {
+        "id": "javascript",
+        "name": "JavaScript",
+        "category": "frontend"
+      },
+      {
+        "id": "linux",
+        "name": "Linux",
+        "category": "infrastructure"
+      },
+      {
+        "id": "ui-design",
+        "name": "UI Design",
+        "category": "design"
+      }
+    ]
+  },
+  "socials": [
+    {
+      "id": "github",
+      "name": "GitHub",
+      "username": "YOUR_USERNAME",
+      "description": "Explore my open-source projects",
+      "url": "https://github.com/",
+      "icon": "github",
+      "color": "#F4F6FF",
+      "enabled": true,
+      "featured": true
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "username": "YOUR_USERNAME",
+      "description": "Connect with me on Discord",
+      "url": "https://discord.com/",
+      "icon": "discord",
+      "color": "#9098FF",
+      "enabled": true,
+      "featured": true
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "username": "YOUR_USERNAME",
+      "description": "Follow my creative adventures",
+      "url": "https://instagram.com/",
+      "icon": "instagram",
+      "color": "#FF77C8",
+      "enabled": true,
+      "featured": true
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "username": "YOUR_USERNAME",
+      "description": "Videos and creative projects",
+      "url": "https://youtube.com/",
+      "icon": "youtube",
+      "color": "#FF7777",
+      "enabled": true,
+      "featured": false
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "username": "YOUR_USERNAME",
+      "description": "My professional network",
+      "url": "https://linkedin.com/",
+      "icon": "linkedin",
+      "color": "#64E9FF",
+      "enabled": true,
+      "featured": false
+    },
+    {
+      "id": "email",
+      "name": "Email",
+      "username": "hello@example.com",
+      "description": "Send me a message",
+      "url": "mailto:hello@example.com",
+      "icon": "email",
+      "color": "#FFE59A",
+      "enabled": true,
+      "featured": false
+    }
+  ],
+  "navigation": [
+    {
+      "id": "nav-home",
+      "label": "HOME",
+      "sectionId": "home",
+      "icon": "home",
+      "enabled": true
+    },
+    {
+      "id": "nav-about",
+      "label": "ABOUT",
+      "sectionId": "about",
+      "icon": "user",
+      "enabled": true
+    },
+    {
+      "id": "nav-projects",
+      "label": "PROJECTS",
+      "sectionId": "projects",
+      "icon": "folder",
+      "enabled": true
+    },
+    {
+      "id": "nav-contact",
+      "label": "CONTACT",
+      "sectionId": "contact",
+      "icon": "mail",
+      "enabled": true
+    }
+  ],
+  "linkCards": [
+    {
+      "id": "card-github",
+      "type": "social",
+      "socialId": "github",
+      "style": "primary",
+      "enabled": true
+    },
+    {
+      "id": "card-discord",
+      "type": "social",
+      "socialId": "discord",
+      "style": "default",
+      "enabled": true
+    },
+    {
+      "id": "card-instagram",
+      "type": "social",
+      "socialId": "instagram",
+      "style": "default",
+      "enabled": true
+    },
+    {
+      "id": "card-about",
+      "type": "section",
+      "sectionId": "about",
+      "title": "ABOUT ME",
+      "description": "Get to know the person behind the pixels",
+      "icon": "user",
+      "style": "accent",
+      "enabled": true
+    },
+    {
+      "id": "card-projects",
+      "type": "section",
+      "sectionId": "projects",
+      "title": "MY PROJECTS",
+      "description": "Discover what I have built",
+      "icon": "folder",
+      "style": "default",
+      "enabled": true
+    },
+    {
+      "id": "card-portfolio",
+      "type": "external",
+      "title": "PORTFOLIO",
+      "description": "Explore my work",
+      "url": "https://example.com/",
+      "icon": "portfolio",
+      "style": "default",
+      "enabled": true
+    }
+  ],
+  "projects": {
+    "id": "projects",
+    "enabled": true,
+    "title": "MY PROJECTS",
+    "description": "A collection of things I've created.",
+    "items": [
+      {
+        "id": "project-one",
+        "title": "PROJECT ALPHA",
+        "description": "An interactive web experience.",
+        "tags": ["HTML", "CSS", "JavaScript"],
+        "featured": true,
+        "links": [
+          {
+            "label": "SOURCE CODE",
+            "type": "social",
+            "socialId": "github"
+          }
+        ]
+      },
+      {
+        "id": "project-two",
+        "title": "PROJECT NOVA",
+        "description": "A creative frontend experiment.",
+        "tags": ["Frontend", "UI Design"],
+        "featured": false,
+        "links": [
+          {
+            "label": "LIVE DEMO",
+            "type": "external",
+            "url": "https://example.com/"
+          }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "id": "contact",
+    "enabled": true,
+    "title": "CONTACT ME",
+    "description": "Let's build something awesome together.",
+    "socialIds": [
+      "email",
+      "discord",
+      "linkedin"
+    ]
+  },
+  "footer": {
+    "text": "Made somewhere in the universe.",
+    "showCopyright": true,
+    "showYear": true,
+    "showSocialIcons": true,
+    "socialIds": [
+      "github",
+      "discord",
+      "instagram"
+    ]
+  },
+  "theme": {
+    "primary": "#9775FA",
+    "secondary": "#64E9FF",
+    "accent": "#FF77C8",
+    "background": "#080B1A",
+    "surface": "#151B35",
+    "text": "#F4F6FF",
+    "muted": "#99A6CC"
+  },
+  "animation": {
+    "enabled": true,
+    "starCount": 180,
+    "baseSpeed": 1,
+    "warpMultiplier": 4,
+    "parallax": true,
+    "shootingStars": true,
+    "planets": true,
+    "spaceship": true,
+    "particleEffects": true,
+    "adaptiveQuality": true
+  }
+}
